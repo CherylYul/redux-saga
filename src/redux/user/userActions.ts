@@ -4,6 +4,7 @@ import {
   FETCH_USER_REQUEST,
   FETCH_USER_SUCCESS,
 } from "./userTypes";
+import { Dispatch } from "redux";
 
 export const fetchUserRequest = () => {
   return {
@@ -26,8 +27,8 @@ export const fetchUserFailure = (error: string) => {
 };
 
 export const fetchUsers = () => {
-  return (dispatch) => {
-    dispatch(fetchUserRequest);
+  return (dispatch: Dispatch) => {
+    dispatch(fetchUserRequest());
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => {
